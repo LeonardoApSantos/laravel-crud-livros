@@ -1,5 +1,5 @@
 @extends('master')
-@section('titulo','Novo Automóvel')
+@section('titulo','Novo Livro')
 @section('conteudo')
  
 @foreach($errors->all() as $e)  
@@ -8,40 +8,40 @@
   </div>
   @endforeach
 
-  <form method="post" action="/automovel/{{$automovel->id}}">
-    <h3 class="text-center display-4">Editar Automóvel</h3>
+  <form method="post" action="/livro/{{$livro->id}}">
+    <h3 class="text-center display-4">Editar Livro</h3>
   @csrf
   @method("put")
     <div class="container">
   
   <dl class="row">
   <div class="col-12">
-  	<dt>Nome</dt>
-  	<dd><input type="text" class="form-control" name="nome" value="{{$automovel->nome}}"></dd>
+  	<dt>Titulo</dt>
+  	<dd><input type="text" class="form-control" name="nome" value="{{$livro->titulo}}"></dd>
     </div>
   <div class="col-12">
-  	<dt>Marca</dt>
-  	<dd><input type="text" class="form-control" name="marca"  value="{{$automovel->marca}}"></dd>
+  	<dt>Subtitulo</dt>
+  	<dd><input type="text" class="form-control" name="marca"  value="{{$livro->subtitulo}}"></dd>
     </div>
     <div class="col-12">
-  	<dt>Modelo</dt>
-  	<dd><input type="text" class="form-control"  name="modelo"  value="{{$automovel->modelo}}"></dd>
+  	<dt>Sinopse</dt>
+  	<dd><input type="text" class="form-control"  name="modelo"  value="{{$livro->sinopse}}"></dd>
     </div>
     <div class="col-12">
-    <dt>Placa</dt>
-  	<dd><input type="text" class="form-control"  name="placa"  value="{{$automovel->placa}}"></dd>
+    <dt>Autor</dt>
+  	<dd><input type="text" class="form-control"  name="placa"  value="{{$livro->autor}}"></dd>
     </div>
     <div class="col-6">
     <dt>Valor para venda</dt>
-  	<dd><input type="number" class="form-control"  name="vl_venda"  value="{{$automovel->vl_venda}}"></dd>
+  	<dd><input type="number" class="form-control"  name="vl_venda"  value="{{$livro->vl_venda}}"></dd>
     </div>
     <div class="col-6">
-    <dt>Data de Fabricação</dt>
-  	<dd><input type="date" class="form-control"  name="dt_fabricacao"  value="{{$automovel->dt_fabricacao}}"></dd>
+    <dt>Data de Lançamento</dt>
+  	<dd><input type="date" class="form-control"  name="dt_fabricacao"  value="{{$livro->dt_lancamento}}"></dd>
     </div>
     
   </dl>
-  <a href="/automovel" class="btn">Voltar</a>
+  <a href="/livro" class="btn">Voltar</a>
   <input type="submit" class="btn btn-primary" value="Atualizar">
   </form>
   </div>

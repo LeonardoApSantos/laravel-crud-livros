@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Automovel;
+use App\Livro;
 use Illuminate\Http\Request;
 
-class AutomovelController extends Controller
+class LivroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class AutomovelController extends Controller
      */
     public function index()
     {
-        $automoveis = Automovel::all();
-        return view('automovel.index')->with('automoveis',$automoveis);
+        $automoveis = Livro::all();
+        return view('livro.index')->with('livros',$livros);
     }
 
     /**
@@ -25,7 +25,7 @@ class AutomovelController extends Controller
      */
     public function create()
     {
-        return view ('automovel.create');
+        return view ('livro.create');
     }
 
     /**
@@ -37,35 +37,35 @@ class AutomovelController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'placa' => 'required|unique:automovels'
+            'placa' => 'required|unique:livros'
         ],[
             'placa.unique' => 'Placa deve ser única'
         ]
         );
 
-        Automovel::create($request->all());
-        return redirect('automovel');
+        Livro::create($request->all());
+        return redirect('livro');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Automovel  $automovel
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function show(Automovel $automovel)
+    public function show(Livro $livro)
     {
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Automovel  $automovel
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Automovel $automovel)
+    public function edit(Livro $livro)
     {
-        return view('automovel.edit')->with('automovel',$automovel);
+        return view('livro.edit')->with('livro',$livro);
         //
     }
 
@@ -73,22 +73,22 @@ class AutomovelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Automovel  $automovel
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Automovel $automovel)
+    public function update(Request $request, Livro $livro)
     {
-        $automovel->update($request->all());
-        return redirect('automovel'); 
+        $livro->update($request->all());
+        return redirect('livro'); 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Automovel  $automovel
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Automovel $automovel)
+    public function destroy(Livro $livro)
     {
         //
     }

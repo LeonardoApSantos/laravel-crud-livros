@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAutomovelsTable extends Migration
+class CreateLivrosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateAutomovelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('automovels', function (Blueprint $table) {
+        Schema::create('livros', function (Blueprint $table) {
            $table->increments('id');
            // $table->timestamps();
-           $table->string('nome',100);
-           $table->string('marca',100);
-           $table->string('modelo',100);
-           $table->string('placa', 8)->unique();
+           $table->string('titulo',100);
+           $table->string('subtitulo',100);
+           $table->string('sinopse',500);
+           $table->string('autor', 100);//->unique();
            $table->double('vl_venda');
-           $table->date('dt_fabricacao');
+           $table->date('dt_lancamento');
         });
     }
 
@@ -32,6 +32,6 @@ class CreateAutomovelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('automovels');
+        Schema::dropIfExists('livros');
     }
 }

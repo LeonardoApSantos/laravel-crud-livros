@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Peca;
-use App\Automovel;
+use App\Autor;
+use App\Livro;
 use Illuminate\Http\Request;
 
-class PecaController extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class PecaController extends Controller
      */
     public function index()
     {
-        // Obtem todos os Pecas cadastrados e os passa para view
-        $pecas = Peca::all();
-        return view('peca.index')->with('pecas',$pecas);
+        // Obtem todos os Autores cadastrados e os passa para view
+        $pecas = Autor::all();
+        return view('autor.index')->with('autores',$autores);
     }
 
     /**
@@ -27,9 +27,9 @@ class PecaController extends Controller
      */
     public function create()
     {
-        $automovel = Automovel::all();
+        $livro = Livro::all();
 
-        return view ('peca.create', ['automovel' => $automovel]);
+        return view ('autor.create', ['livro' => $livro]);
     }
 
     /**
@@ -40,17 +40,17 @@ class PecaController extends Controller
      */
     public function store(Request $request)
     {
-        Peca::create($request->all());
-        return redirect('peca');
+        Autor::create($request->all());
+        return redirect('autor');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Peca  $Peca
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function show(Peca $peca)
+    public function show(Autor $autor)
     {
         //
     }
@@ -58,14 +58,14 @@ class PecaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Peca  $Peca
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Peca $peca)
+    public function edit(Autor $peca)
     {        
-        $automovel = Automovel::all();
+        $livro = Livro::all();
 
-        return view('peca.edit', ['automovel' => $automovel])->with('peca',$peca);
+        return view('livro.edit', ['livro' => $livro])->with('autor',$autor);
     }
 
     /**
