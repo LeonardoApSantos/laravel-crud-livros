@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Autor;
 use App\Livro;
 use Illuminate\Http\Request;
 
-class AutorController extends Controller
+class LivroController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,8 @@ class AutorController extends Controller
      */
     public function index()
     {
-        // Obtem todos os Autores cadastrados e os passa para view
-        $pecas = Autor::all();
-        return view('autor.index')->with('autores',$autores);
+        $livros = Livro::all();
+        return view('livro.index')->with('livros',$livros);
     }
 
     /**
@@ -27,9 +25,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-        $livro = Livro::all();
-
-        return view ('autor.create', ['livro' => $livro]);
+        return view ('livro.create');
     }
 
     /**
@@ -40,54 +36,53 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        Autor::create($request->all());
-        return redirect('autor');
+
+        Livro::create($request->all());
+        return redirect('livro');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Autor  $Autor
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function show(Autor $autor)
+    public function show(Livro $livro)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Autor  $Autor
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Autor $peca)
-    {        
-        $livro = Livro::all();
-
-        return view('livro.edit', ['livro' => $livro])->with('autor',$autor);
+    public function edit(Livro $livro)
+    {
+        return view('livro.edit')->with('livro',$livro);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Peca  $Peca
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Peca $peca)
+    public function update(Request $request, Livro $livro)
     {
-        $peca->update($request->all());
-        return redirect('peca'); 
+        $livro->update($request->all());
+        return redirect('livro'); 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Peca  $Peca
+     * @param  \App\Livro  $livro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Peca $peca)
+    public function destroy(Livro $livro)
     {
         //
     }

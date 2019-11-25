@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Peca_automovel extends Model
+class Autor_livro extends Model
 {
     //
 }

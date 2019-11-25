@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>AutoTech</title>
+    <title>EasyBook</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -22,10 +22,14 @@
 
     <style>
         footer{
-            background: black;
-            color: white;
+            background: white;
+            color: black;
             padding: 1em;
             text-align: center;
+        }
+
+        main{
+            background: lightyellow;
         }
 
         .git{
@@ -44,7 +48,7 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    AutoTech
+                    EasyBook
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -74,8 +78,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="automovel">
-                                        {{ __('Automóveis') }}
+                                    <a class="dropdown-item" href="livro">
+                                        {{ __('Livro') }}
                                     </a>
                                 
                                     <a class="dropdown-item" href="cliente">
@@ -86,8 +90,8 @@
                                     {{ __('Vendedores') }}
                                     </a>
                                 
-                                    <a class="dropdown-item" href="peca">
-                                    {{ __('Peças') }}
+                                    <a class="dropdown-item" href="autor">
+                                    {{ __('Autores') }}
                                     </a>
                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -117,15 +121,12 @@
 </body>
 <footer>
 
-        <div class="center-obj ">
-            <img class="git" src="https://image.flaticon.com/icons/svg/733/733553.svg" alt="">
-        </div>
+        
 
     <h5>Desenvolvido por:</h5>
 
     <div class="">
-        <a href="https://github.com/anderson290">Anderson Nunes</a> | 
-        <a href="https://github.com/weslleyantonio">Weslley Antônio</a>
+        <a href="https://github.com/LeonardoApSantos">Leonardo Santos</a>
     </div>
 </footer>
 </html>

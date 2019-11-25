@@ -1,16 +1,16 @@
 @extends('master')
-@section('titulo','Pecas')
+@section('titulo','Autores')
 @section('conteudo')
 
 <a href="/home" class="btn float-right">Home</a>
 <div class="container">
 
-  <h1 class="text-center display-4"><a href="/peca/create">Nova Peça</a></h1>
+  <h1 class="text-center display-4"><a href="/autor/create">Novo Autor</a></h1>
   <table class="table">
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Marca</th>
+      <th scope="col">Biografia</th>
       <th scope="col">Modelo</th>
       <th scope="col">Valor</th>
       <th scope="col">Data</th>
@@ -21,14 +21,13 @@
   </tbody>
    
   
-    @foreach($pecas as $a)
+    @foreach($autores as $a)
     <tr> 
       <td>{{$a->nome}}</td>
-      <td>{{$a->marca}}</td>
-      <td>{{$a->modelo}}</td>
-      <td>{{$a->preco}}</td>
-      <td>{{$a->dt_fabricacao}}</td>
-      <td><a href="peca/{{$a->id}}/edit">Editar</a></td>  	
+      <td>{{$a->biografia}}</td>
+      <td>{{$a->cd_autor}}</td>
+      <td>{{$a->dt_nascimento}}</td>
+      <td><a href="autor/{{$a->id}}/edit">Editar</a></td>  	
 
   </tr>
   @endforeach

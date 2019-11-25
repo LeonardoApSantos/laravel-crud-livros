@@ -17,8 +17,8 @@ Route::get('/', function () {
 
 Route::resource('cliente','ClienteController');
 Route::resource('vendedor','VendedorController');
-Route::resource('automovel','AutomovelController');
-Route::resource('peca','PecaController');
+Route::resource('livro','LivroController');
+Route::resource('autor','AutorController');
 
 Auth::routes();
 

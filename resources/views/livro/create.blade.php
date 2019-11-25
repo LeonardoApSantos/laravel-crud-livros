@@ -9,7 +9,7 @@
   @endforeach
 
   <form method="post" class="container" action="/livro">
-    <h3 class="text-center display-4">Novo Automóvel</h3>
+    <h3 class="text-center display-4">Novo Livro</h3>
   @csrf
   <dl class="row">
   <div class="col-12">

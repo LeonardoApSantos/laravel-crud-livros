@@ -29,7 +29,7 @@
       <td>{{$l->autor}}</td>
       <td>{{$l->vl_venda}}</td>
       <td>{{$l->dt_lancamento}}</td>
-      <td><a href="livro/{{$a->id}}/edit">Editar</a></td>  	
+      <td><a href="livro/{{$l->id}}/edit">Editar</a></td>  	
 
   </tr>
   @endforeach

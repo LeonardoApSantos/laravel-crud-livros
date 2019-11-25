@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Autor;
 use App\Livro;
 use Illuminate\Http\Request;
 
-class LivroController extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,9 @@ class LivroController extends Controller
      */
     public function index()
     {
-        $automoveis = Livro::all();
-        return view('livro.index')->with('livros',$livros);
+        // Obtem todos os Autores cadastrados e os passa para view
+        $autores = Autor::all();
+        return view('autor.index')->with('autores',$autores);
     }
 
     /**
@@ -25,7 +27,9 @@ class LivroController extends Controller
      */
     public function create()
     {
-        return view ('livro.create');
+        $livro = Livro::all();
+
+        return view ('autor.create', ['livro' => $livro]);
     }
 
     /**
@@ -36,59 +40,54 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'placa' => 'required|unique:livros'
-        ],[
-            'placa.unique' => 'Placa deve ser única'
-        ]
-        );
-
-        Livro::create($request->all());
-        return redirect('livro');
+        Autor::create($request->all());
+        return redirect('autor');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Livro  $livro
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function show(Livro $livro)
+    public function show(Autor $autor)
     {
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Livro  $livro
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Livro $livro)
-    {
-        return view('livro.edit')->with('livro',$livro);
-        //
+    public function edit(Autor $autor)
+    {        
+        $livro = Livro::all();
+
+        return view('autor.edit', ['livro' => $livro])->with('autor',$autor);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Livro  $livro
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Livro $livro)
+    public function update(Request $request, Autor $autor)
     {
-        $livro->update($request->all());
-        return redirect('livro'); 
+        $autor->update($request->all());
+        return redirect('autor'); 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Livro  $livro
+     * @param  \App\Autor  $Autor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Livro $livro)
+    public function destroy(Autor $autor)
     {
         //
     }
